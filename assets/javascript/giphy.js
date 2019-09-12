@@ -14,10 +14,10 @@ function makeButtons() {
 };
 $(document).ready(function() {
     $("body").on("click", ".topic", function() {
-
         var params = {
-            "api-key": "DXegwsyntvZb8CarqFL5e6af0Rs6fIMo",
-            "q":    this.text,
+            "apikey": "DXegwsyntvZb8CarqFL5e6af0Rs6fIMo",
+            "q":    $(this).attr("data-name"),
+            "limit": 10
         }
         
         var queryURL = "https://api.giphy.com/v1/gifs/search";
@@ -27,39 +27,25 @@ $(document).ready(function() {
             method: "GET",
             data: params
           }).then(function(response) {
-            // Storing an array of results in the results variable
             var results = response.data;
+            console.log(results.length)
+            for (var i = 0; i < results.length; i++) {
+                var gifDiv = $("<div>");
+                console.log(results[i])
   
-            // // Looping over every result item
-            // for (var i = 0; i < results.length; i++) {
+                var rating = results[i].rating;
+                var p = $("<p>").text("Rating: " + rating);
   
-            //   // Only taking action if the photo has an appropriate rating
-            //   if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-            //     // Creating a div for the gif
-            //     var gifDiv = $("<div>");
+                var personImage = $("<img>");
   
-            //     // Storing the result item's rating
-            //     var rating = results[i].rating;
+                personImage.attr("src", results[i].images.fixed_height_still.url);
   
-            //     // Creating a paragraph tag with the result item's rating
-            //     var p = $("<p>").text("Rating: " + rating);
+                gifDiv.append(p);
+                gifDiv.append(personImage);
   
-            //     // Creating an image tag
-            //     var personImage = $("<img>");
-  
-            //     // Giving the image tag an src attribute of a proprty pulled off the
-            //     // result item
-            //     personImage.attr("src", results[i].images.fixed_height.url);
-  
-            //     // Appending the paragraph and personImage we created to the "gifDiv" div we created
-            //     gifDiv.append(p);
-            //     gifDiv.append(personImage);
-  
-            //     // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-            //     $("#gifs-appear-here").prepend(gifDiv);
-            //   }
-            // }
+                $("#gifBucket").prepend(gifDiv);
+            };
         });
-    })
+    });
 });
 makeButtons();
