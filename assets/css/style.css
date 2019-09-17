@@ -1,0 +1,17 @@
+.gifDiv {
+    display: inline-block;
+    margin: 1%;
+}
+
+.buttonStore {
+    align-content: center;
+}
+
+#movie-form label {
+    margin: 0;
+}
+
+#movie-form .btn {
+    margin-top: 1%;
+}
+

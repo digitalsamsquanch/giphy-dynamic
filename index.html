@@ -7,11 +7,23 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="buttonStore"></div>
+    <div class="container-fluid">
+        <div class="text-center buttonStore"></div>
     </div>
-    <div id="gifBucket"></div>
-    
+    <div class="row">
+        <div class="col-md-8">
+            <div id="gifBucket"></div>
+        </div>
+        <div class="col-md-4">
+            <form id="gifForm">
+                <label for="addGif-input">Add Any Movie</label><br>
+                <input type="text" id="gifTopic">
+                <br>
+                <button class="btn btn-dark" id="addGif-button" type="submit">Make It So</button>
+            </form><br>
+            <div id="movieInfo"></div>
+        </div>
+    </div>
     <script src="assets/javascript/giphy.js"></script>
 </body>
 </html>
