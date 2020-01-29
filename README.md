@@ -1,3 +1,3 @@
 # giphy-dynamic
 
-https://digitalsamsquanch.github.io/giphy-dynamic/
+https://morose.github.io/giphy-dynamic/
