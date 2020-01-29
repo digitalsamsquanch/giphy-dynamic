@@ -1,3 +1,3 @@
 # giphy-dynamic
 
-https://morose.github.io/giphy-dynamic/
+https://moroseCode.github.io/giphy-dynamic/
